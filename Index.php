@@ -1,51 +1,39 @@
+
+ <!--Head-->
 <?php
-session_start();
-
-// if counter is not set, set to zero
-if(!isset($_SESSION['counter'])) {
-    $_SESSION['counter'] = 0;
-}
-
-// if button is pressed, increment counter
-if(isset($_POST['button'])) {
-    ++$_SESSION['counter'];
-}    
-
-// reset counter
-if(isset($_POST['reset'])) {
-    $_SESSION['counter'] = 0;
-}
-
+$page_title = 'Login';
+include($_SERVER['DOCUMENT_ROOT'].'/pages/global/header.php');
 ?>
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
-    <link href="\bootstrap-5.3.0-alpha1-dist\css\bootstrap.min.css" rel="stylesheet">
-  </head>
-  <body>
-  
-    <h1>Hello, world!</h1>
-    <h2>Teszt<h2>
-    <script src="\bootstrap-5.3.0-alpha1-dist\js\bootstrap.bundle.min.js"></script>
-    <form method="POST">
-    <input type="hidden" name="counter" class="btn btn-primary" value="<?php echo $_SESSION['counter']; ?>" />
-    <input type="submit" name="button" class="btn btn-primary" value="Counter" <?php if ($_SESSION['counter'] == 10){ ?> disabled <?php   } ?>/>
-    <input type="submit" name="reset" class="btn btn-danger" value="Reset" <?php if ($_SESSION['counter'] != 10){ ?> disabled <?php   } ?>/>
-</form>
-    <div class="progress">
-      <?php
-      function Healthpoint(){
-        $HP = 100 - 10*$_SESSION['counter'];
-        if ($HP > 0) {
-          echo $HP;
-        }
-        else{echo '';}
-      }
-      ?>
-  <div class="progress-bar" role="progressbar" style="width: <?php Healthpoint() ?>%" aria-valuenow="<?php Healthpoint() ?>" aria-valuemin="0" aria-valuemax="100"><?php Healthpoint() ?></div>
-</div>
-  </body>
-</html>
+ <!--Head-->
+
+<!--Body-->
+
+    <form action="/action_page.php" method="post">
+        <div class="container h-100">
+            <div class="row h-100 justify-content-center align-items-center">
+                <form class="col-12">
+                <div class="form-group text-center">
+                    <label class="form-label" for="form2Example2">Password</label>
+                    <input type="password" id="form2Example2" class="form-control" />
+                </div>
+                <div class="form-group text-center">
+                    <button type="button" class="btn btn-primary btn-block mb-4">Sign in</button>
+                </div>
+                </form>   
+            </div>
+        </div>
+    </form>
+
+
+
+
+
+
+
+<!--Body-->
+
+<!--Footer-->
+<?php
+include($_SERVER['DOCUMENT_ROOT'].'/pages/global/footer.php');
+?> 
+<!--Footer-->

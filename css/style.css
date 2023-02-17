@@ -1,4 +1,11 @@
 body {
     background-color: black;
+    color: yellow;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
   }
+footer{
+    margin-top: auto;
+}
   
