@@ -1,3 +1,13 @@
+body, html {
+  height: 100%;
+}
+
+footer{
+  text-align: center;
+  margin-top: auto;
+}
+
+
 body {
     background-color: black;
     color: yellow;
@@ -5,7 +15,34 @@ body {
     display: flex;
     flex-direction: column;
   }
-footer{
-    margin-top: auto;
+
+/* Login Page */
+.logindiv {
+  top: 50%;
+  left: 50%;
+  width: 30em;
+  height: 5em;
+  margin-top: -2.5em;
+  margin-left: -15em;
+  position: fixed;
+  text-align: center;
 }
-  
+.loginInputText {
+  background-color: #181a1b;
+  padding: .700rem .75rem;
+  box-sizing: border-box;
+  border: 2px solid white;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+}
+.loginInputText:focus, .loginInputText:hover {
+  border: 2px solid #F2CB05;
+  background-color: #181a1b;
+  color:white;
+}
+
+.loginInputText::placeholder{
+  color:#757575;
+}
+/* Login Page */
