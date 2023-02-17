@@ -35,6 +35,7 @@ body {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 10px;
+  color:white;
 }
 .loginInputText:focus, .loginInputText:hover {
   border: 2px solid #F2CB05;
