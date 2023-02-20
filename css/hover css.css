@@ -1,16 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Lato');
-body {
-  background-color: #000000;
-  color: rgba(255, 255, 255, 0.7);
-  font-family: 'Lato', sans-serif;
-  margin: 20px;
-}
-* {
-  margin: 0px;
-  padding: 0px;
-  box-sizing: border-box;
-}
-.menu {
+.menuX {
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.8);
   display: inline-block;
@@ -18,17 +7,17 @@ body {
   pointer-events: none;
   position: absolute;
   bottom: 20px;
-  left: 20px;
+  right: 20px;
 }
-.menu:hover {
+.menuX:hover {
   pointer-events: all;
 }
-.label {
+.labelX {
   display: inline-block;
   cursor: pointer;
   pointer-events: all;
 }
-.spacer {
+.spacerX {
   display: inline-block;
   width: 80px;
   margin-left: 15px;
@@ -37,7 +26,7 @@ body {
   cursor: pointer;
   position: relative;
 }
-.spacer:before {
+.spacerX:before {
   content: "";
   position: absolute;
   border-bottom: 1px solid #ffffff;
@@ -46,7 +35,7 @@ body {
   transition: width 0.25s ease;
   transition-delay: 0.7s;
 }
-.item {
+.itemX {
   position: relative;
   margin-right: 30px;
   top: 10px;
@@ -57,74 +46,74 @@ body {
 span {
   transition: color 0.5s ease;
 }
-.item:hover span {
+.itemX:hover span {
   color: #ff0000;
 }
-.menu:hover .spacer:before {
+.menuX:hover .spacer:before {
   width: 100%;
   transition-delay: 0s;
 }
-.menu:hover .item {
+.menuX:hover .itemX {
   opacity: 1;
   top: 0px;
 }
-.item:nth-child(1) {
+.itemX:nth-child(10) {
   transition-delay: 0.45s;
 }
-.item:nth-child(2) {
+.itemX:nth-child(9) {
   transition-delay: 0.4s;
 }
-.item:nth-child(3) {
+.itemX:nth-child(8) {
   transition-delay: 0.35s;
 }
-.item:nth-child(4) {
+.itemX:nth-child(7) {
   transition-delay: 0.3s;
 }
-.item:nth-child(5) {
+.itemX:nth-child(6) {
   transition-delay: 0.25s;
 }
-.item:nth-child(6) {
+.itemX:nth-child(5) {
   transition-delay: 0.2s;
 }
-.item:nth-child(7) {
+.itemX:nth-child(4) {
   transition-delay: 0.15s;
 }
-.item:nth-child(8) {
+.itemX:nth-child(3) {
   transition-delay: 0.1s;
 }
-.item:nth-child(9) {
+.itemX:nth-child(2) {
   transition-delay: 0.05s;
 }
-.item:nth-child(10) {
+.itemX:nth-child(1) {
   transition-delay: 0s;
 }
-.menu:hover .item:nth-child(10) {
+.menuX:hover .itemX:nth-child(10) {
   transition-delay: 0.25s;
 }
-.menu:hover .item:nth-child(9) {
+.menuX:hover .itemX:nth-child(9) {
   transition-delay: 0.3s;
 }
-.menu:hover .item:nth-child(8) {
+.menuX:hover .itemX:nth-child(8) {
   transition-delay: 0.35s;
 }
-.menu:hover .item:nth-child(7) {
+.menuX:hover .itemX:nth-child(7) {
   transition-delay: 0.4s;
 }
-.menu:hover .item:nth-child(6) {
+.menuX:hover .itemX:nth-child(6) {
   transition-delay: 0.45s;
 }
-.menu:hover .item:nth-child(5) {
+.menuX:hover .itemX:nth-child(5) {
   transition-delay: 0.5s;
 }
-.menu:hover .item:nth-child(4) {
+.menuX:hover .itemX:nth-child(4) {
   transition-delay: 0.55s;
 }
-.menu:hover .item:nth-child(3) {
+.menuX:hover .itemX:nth-child(3) {
   transition-delay: 0.6s;
 }
-.menu:hover .item:nth-child(2) {
+.menuX:hover .itemX:nth-child(2) {
   transition-delay: 0.65s;
 }
-.menu:hover .item:nth-child(1) {
+.menuX:hover .itemX:nth-child(1) {
   transition-delay: 0.7s;
 }
