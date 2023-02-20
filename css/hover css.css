@@ -37,7 +37,7 @@
 }
 .itemX {
   position: relative;
-  margin-right: 30px;
+  margin-bottom: 30px;
   top: 10px;
   opacity: 0;
   transition: opacity 0.5s ease, top 0.5s ease;
