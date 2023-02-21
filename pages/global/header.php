@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html>
+<html style="font-size: calc( 16px + (24 - 16) * (100vw - 400px) / (800 - 400) );">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <title>D&D Help Desk - <?php echo $page_title; ?></title>
