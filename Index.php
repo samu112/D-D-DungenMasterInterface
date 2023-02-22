@@ -14,19 +14,7 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
     exit;
 }
  
-$host = 'db';
-
-// Database use name
-$user = 'MYSQL_USER';
-
-//database user password
-$pass = 'MYSQL_PASSWORD';
-
-// database name
-$mydatabase = 'MYSQL_DATABASE';
-// check the mysql connection status
-
-$link = new mysqli($host, $user, $pass, $mydatabase);
+include($_SERVER['DOCUMENT_ROOT'].'/scripts/php_scripts/config.php');
 
 // Define variables and initialize with empty values
 $username = $password = "";
