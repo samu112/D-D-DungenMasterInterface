@@ -16,6 +16,18 @@ $mydatabase = 'MYSQL_DATABASE';
 
 $conn = new mysqli($host, $user, $pass, $mydatabase);
 
+$sql=
+'
+CREATE TABLE DM(
+    id MEDIUMINT NOT NULL AUTO_INCREMENT,
+    username CHAR(30) NOT NULL,
+    UNIQUE(username),
+    PASSWORD CHAR(38) NOT NULL,
+    PRIMARY KEY(id)
+)
+';
+$conn->query($sql);
+
 // select query
 $sql = 'SELECT * FROM users';
 
