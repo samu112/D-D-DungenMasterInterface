@@ -28,6 +28,7 @@ function generateRandomString($length = 10) {
  <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-center">
  <form class="form-inline">
     <button class="btn btn-outline-success" type="button">Global settings</button>
+    <a href="\scripts\php_scripts\logout.php">Logout</a>
   </form>
 </nav>
  <!--Navbar-->
