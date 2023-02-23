@@ -16,6 +16,29 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
  
 include($_SERVER['DOCUMENT_ROOT'].'/scripts/php_scripts/config.php');
 
+function PasswordValidation($link, $query) {
+    if($stmt = $link->prepare($query)){
+            
+        // Attempt to execute the prepared statement
+        if($stmt->execute()){
+            // Store result
+            $stmt->store_result();
+            
+            // Check if user with this password exists
+            if($stmt->num_rows == 1){                    
+                if($stmt->fetch()){           
+                    // Password is correct
+                    $stmt->close();
+                    return true;
+                }
+            }
+        } 
+        $stmt->close();
+    }
+    return false;
+}
+
+
 // Define variables and initialize with empty values
 $username = $password = "";
 $password_err = $login_err = "";
@@ -34,44 +57,44 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     if(empty($password_err)){
         // Prepare a select statement
 		$password=md5($password);
-        $sql = "SELECT id, username, password FROM DM WHERE password = \"" . $password . "\"";
-        
-        if($stmt = $link->prepare($sql)){
+        $DMsql = "SELECT dm_id, username, password FROM DM WHERE password = \"" . $password . "\"";
+        $Usersql = "SELECT user_id, character_name, password FROM User WHERE password = \"" . $password . "\"";
+        //Check DM Table
+        if (PasswordValidation($link,$DMsql)==true){
+            $stmt = $link->prepare($DMsql);
+            $stmt->bind_result($id, $username, $hashed_password);
+            // Password is correct, so start a new session
+            if(!isset($_SESSION)) 
+            { 
+                session_start(); 
+            }            
+            // Store data in session variables
+            $_SESSION["loggedin"] = true;
+            $_SESSION["id"] = $id;
+            $_SESSION["username"] = $username;                            
             
-            // Attempt to execute the prepared statement
-            if($stmt->execute()){
-                // Store result
-                $stmt->store_result();
-                
-                // Check if user with this password exists
-                if($stmt->num_rows == 1){                    
-                    // Bind result variables
-                    $stmt->bind_result($id, $username, $hashed_password);
-                    if($stmt->fetch()){           
-						// Password is correct, so start a new session
-						if(!isset($_SESSION)) 
-                        { 
-                            session_start(); 
-                        } 
-						
-						// Store data in session variables
-						$_SESSION["loggedin"] = true;
-						$_SESSION["id"] = $id;
-						$_SESSION["username"] = $username;                            
-						
-						// Redirect user to welcome page
-						header("location: /pages/AfterLogin.php");
-                    }
-                } else{
-                    // Password doesn't exist, display a generic error message
-                    $login_err = "Invalid password!";
-                }
-            } else{
-                echo "Oops! Something went wrong. Please try again later.";
-            }
-
-            // Close statement
-            $stmt->close();
+            // Redirect user to welcome page
+            header("location: /pages/AfterLogin.php");
+        }
+        //Check User Table
+        else if (PasswordValidation($link,$Usersql)==true){
+            $stmt = $link->prepare($Usersql);
+            $stmt->bind_result($id, $charactername, $hashed_password);
+            // Password is correct, so start a new session
+            if(!isset($_SESSION)) 
+            { 
+                session_start(); 
+            }            
+            // Store data in session variables
+            $_SESSION["loggedin"] = true;
+            $_SESSION["id"] = $id;
+            $_SESSION["charactername"] = $charactername;                            
+            
+            // Redirect user to welcome page
+            header("location: /pages/AfterLogin.php");
+        }
+        else{
+            $login_err = "Invalid password!";
         }
     }
     
